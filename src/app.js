@@ -23,7 +23,6 @@ register.registerMetric(http_request_counter);
 
 
    
-   
 // Health Probe - Application Liveliness
 app.get('/health/liveliness',function(req,res){
   console.log(`I am Alive`)
