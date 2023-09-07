@@ -41,7 +41,7 @@ app.get('/health/readiness',function(req,res){
     var clientHostname = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   
     // Use the 'sendFile' method to send the HTML file as a response
-    res.sendFile(__dirname + './html/index.html');
+    res.sendFile(__dirname + '/html/index.html');
   
     console.log(`Someone accessed me! --> from ${clientHostname}`)
   });
