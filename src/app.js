@@ -47,13 +47,14 @@ app.get('/health/readiness',function(req,res){
     console.log(`Someone accessed me! --> from ${clientHostname}`)
   });
 
+  
 // Add a new route to serve the image
 app.get('/batman', function (req, res) {
   // Set the content type to image/png
   res.contentType('image/png');
 
   // Use 'sendFile' to serve the image
-  res.sendFile(path.join(__dirname, 'img', '1329876.png'));
+  res.sendFile(__dirname + '/img/1329876.png');
 });
 
 app.get('/test1', function (req, res) {
