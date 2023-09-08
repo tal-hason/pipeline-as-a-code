@@ -53,18 +53,20 @@ app.get('/health/readiness',function(req,res){
 // Define a route to serve images by name
 app.get('/image/:imageName', function (req, res) {
   const imageName = req.params.imageName; // Get the image name from the URL parameter
-  const imagePath = path.join(__dirname, 'img', imageName);
-
+  const imagePath = path.sendFile(__dirname + `/img/${imageName}`);
+  console.log(`Requested image: ${imageName}`);
   // Check if the image file exists
   if (fs.existsSync(imagePath)) {
     // Set the content type based on the image file extension
     const contentType = getContentType(imageName);
+    console.log(`Serving image: ${imageName}`);
     res.contentType(contentType);
 
     // Use 'sendFile' to serve the image
     res.sendFile(imagePath);
   } else {
     // Return a 404 error if the image does not exist
+    console.log(`Image not found: ${imageName}`);
     res.status(404).send('Image not found');
   }
 });
