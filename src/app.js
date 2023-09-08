@@ -53,7 +53,7 @@ app.get('/health/readiness',function(req,res){
 // Define a route to serve images by name
 app.get('/image/:imageName', function (req, res) {
   const imageName = req.params.imageName; // Get the image name from the URL parameter
-  const imagePath = path.sendFile(__dirname + `/img/${imageName}`);
+  const imagePath = path.join(__dirname, 'img', imageName);
   console.log(`Requested image: ${imageName}`);
   // Check if the image file exists
   if (fs.existsSync(imagePath)) {
