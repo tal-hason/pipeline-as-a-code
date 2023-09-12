@@ -11,7 +11,7 @@ const register = new Prometheus.Registry();
 app = express();
 
 register.setDefaultLabels({
-  app: 'hello-world Nodejs application'
+  app: 'Batman Nodejs application'
 })
 Prometheus.collectDefaultMetrics({register})
 
