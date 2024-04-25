@@ -1,0 +1,18 @@
+pipelineProperties:
+  pipeline:
+    type: polyrepo
+    branchEnv: true
+  buid:
+    main:
+      enabled: true
+      registry: quay.io
+      repository: batman
+      image:
+        base: ubi9
+        utils: nodejs-18
+ApplicationProperties:
+  SourceRepoURL: www.github.com
+  GitOpsRepoURL: www.github.com
+  serviceNames:
+    - batman
+    - robin
