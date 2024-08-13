@@ -59,6 +59,8 @@ spec:
       # Customize this task if you like, or just do a taskRef
       # to one of the hub task.
       - name: build-n-push
+        runAfter:
+          - fetch-repository
         taskRef:
           name: buildah
           kind: ClusterTask
