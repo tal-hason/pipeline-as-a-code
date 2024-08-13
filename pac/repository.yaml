@@ -1,0 +1,13 @@
+apiVersion: pipelinesascode.tekton.dev/v1alpha1
+kind: Repository
+metadata:
+  name: tal-hason-pipeline-as-a-code
+spec:
+  git_provider:
+    user: tal-hason
+  params:
+    - name: deployment
+      value: batman-paac
+    - name: registry
+      value: ghcr.io
+  url: 'https://github.com/tal-hason/pipeline-as-a-code'
