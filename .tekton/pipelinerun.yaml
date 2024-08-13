@@ -58,6 +58,18 @@ spec:
             value: $(params.revision)
       # Customize this task if you like, or just do a taskRef
       # to one of the hub task.
+      - name: build-n-push
+        taskRef:
+          name: buildah
+          kind: ClusterTask
+        workspaces:
+          - name: source
+            workspace: source
+          - name: dockerconfig
+            workspace: auth
+        params:
+          - name: IMAGE
+            value: "ghcr.io/tal-hason/pipeline-as-a-code/app:{{ revision }}"
       - name: noop-task
         runAfter:
           - fetch-repository
@@ -87,3 +99,6 @@ spec:
   - name: basic-auth
     secret:
       secretName: "{{ git_auth_secret }}"
+  - name: auth
+    secret:
+      secretName: "ghcr.io"
